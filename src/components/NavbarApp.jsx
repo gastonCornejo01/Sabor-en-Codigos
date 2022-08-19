@@ -7,7 +7,7 @@ const NavbarApp = () => {
     <nav className="navbar navbar-expand-lg title-nav w-100">
       <div className="container">
         <Link className='navbar-brand' to="/">
-        <i className="fa fa-code-fork" aria-hidden="true"></i> Sabor en Codigos
+          <img className='image-navbar' src="https://i.ibb.co/MVx3xmf/sabor-en-C-D-gos-1.gif" alt="" />
         </Link>
         <button
           className="navbar-toggler"

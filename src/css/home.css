@@ -1,0 +1,13 @@
+.container-home{
+    background-image: url(https://i.ibb.co/mz6rKhp/tasty-fresh-appetizing-italian-food-ingredients-on-old-rustic-wooden-background-ready-to-cook-home-i.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+}
+
+.frase-home{
+    color: white;
+    text-align: center;
+}
