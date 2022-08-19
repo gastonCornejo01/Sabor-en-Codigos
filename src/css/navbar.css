@@ -8,8 +8,8 @@
   background-color: #CEAB93;
 }
 
-.navbar-brand i {
-  color: #b63b3b;
+.image-navbar{
+  height: 80px;
 }
 .nav-item:hover {
   background-color: #AD8B73;
