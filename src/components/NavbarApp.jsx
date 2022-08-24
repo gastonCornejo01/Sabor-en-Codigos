@@ -47,8 +47,10 @@ const NavbarApp = () => {
           </ul>
           <ul className="navbar-nav">
             <li>
+              <NavLink to="/login">
               <button className="btn btn-login">
-                <i className='fa fa-sign-in' aria-hidden="true"></i> Login</button>
+                <i className='fa fa-sign-in' aria-hidden="true"></i> Ingresar</button>
+              </NavLink>
             </li>
           </ul>
         </div>
