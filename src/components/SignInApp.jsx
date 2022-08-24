@@ -5,10 +5,11 @@ import "../css/login.css"
 
 const SignInApp = () => {
   return (
-	<div className='animate__animated animate__backInDown'>
-	<div className='container d-flex justify-content-center mt-5'>
+	<div className='fondo mt-0'>
+	<div className='animate__animated animate__backInLeft'>
+	<div className='container d-flex justify-content-center'>
 
-    <div className='row div-contenedor contain'>
+    <div className='row div-contenedor contain mt-5'>
     <div className="overlay-panel col-md-6 col-sm-12">
 		<form className='form'>
 			<h1>Iniciar Sesión</h1>
@@ -33,7 +34,8 @@ const SignInApp = () => {
     </div>
     </div>
 </div>
-	</div>
+</div>
+</div>
   )
 }
 

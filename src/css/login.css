@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
+body{
+	min-height: 100vh;
+	background: url(../assets/pexels-life-of-pix-67468.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
 .form {
 	background-color: #FFFBE9;
 	display: flex;
@@ -51,7 +56,6 @@
 
 .div-contenedor {
 	display: flex;
-	justify-content: center;
 	align-items: center;
 	font-family: 'Montserrat', sans-serif;
 	height: 50vh;

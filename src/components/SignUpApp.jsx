@@ -4,7 +4,7 @@ import "../css/login.css"
 
 const SignUpApp = () => {
   return (
-	<div className='animate__animated animate__backInDown'>
+	<div className='animate__animated animate__backInRight'>
 <div className='container d-flex justify-content-center mt-5'>
 
     <div className='row div-contenedor contain'>
