@@ -1,36 +1,38 @@
 import React from 'react'
+import "../css/cardMenu.css"
 
-const CardMenu = () => {
+const CardMenu = ({menus}) => {
   return (
     <>
-    
-          <div className="card">
+    <div className='row mt-5 tarjeta'>
             {menus.map((menu, index) => (
-              <div
-                className="mb-3 animate__animated animate__fadeIn "
-                key={index}
-              >
-                <div className="card-body">
-      <h5 className="card-title"></h5>
-      <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <div className="mb-3 col-lg-4 col-md-6 col-sm-12 animate__animated animate__fadeIn" key={index}>
+    <div className="card mb-3 border border-dark" >
+  <div className="card-title container fondo-titulo">
+    <h5 className='mt-2 fw-bold'>{menu.nombre}</h5>
     </div>
-    <div className="card-footer">
-      <small className="text-muted">Last updated 3 mins ago</small>
+  <div className="card-body fondo-body">
+    {/* <img
+                  src={menu.img}
+                  className="card-img-top img_paginas animate__animated animate__fadeIn"
+                  alt={menu.nombre}
+                /> */}
+    <p className="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius voluptatum ratione dolorem tempore sed ab amet porro vel veritatis ad?</p>
+  </div>
+    <div className='card-footer bg-'>
+  <div className='row  footer'>
+    <div className="col-4">
+      <small className="text-muted">${menu.precio}</small>
     </div>
-              </div>
-            ))}
-          </div>
-        
-    <div className="card">
-    
-    <div className="card-body">
-      <h5 className="card-title"></h5>
-      <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    </div>
-    <div className="card-footer">
-      <small className="text-muted">Last updated 3 mins ago</small>
+    <div className='col-4 offset-4'><button className='btn btn-success'>Añadir+</button>
     </div>
   </div>
+  </div>
+</div>
+    </div>
+
+            ))}
+    </div>
     </>
   )
 }
