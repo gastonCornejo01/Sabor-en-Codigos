@@ -25,7 +25,7 @@ const SignUpApp = () => {
 				<a href="https://www.google.com/" className="a"><i className="fa fa-google" aria-hidden="true"></i></a>
 				<a href="https://github.com/" className="a"><i className="fa fa-github-square" aria-hidden="true"></i></a>
 			</div>
-			<input className='input' type="text" placeholder="Nonmbre" />
+			<input className='input' type="text" placeholder="Nombre" />
 			<input className='input' type="email" placeholder="Email" />
 			<input className='input' type="password" placeholder="Contraseña" />
 			<button className='button'>Crear</button>
