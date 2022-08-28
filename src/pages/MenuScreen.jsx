@@ -1,13 +1,13 @@
-import React from 'react'
-import { useState } from 'react';
-import { useEffect } from 'react'
-import CardMenu from '../components/CardMenu';
+import React from "react";
+import { useState, useEffect, useReducer } from "react";
+import { TYPES } from "../actions/pedidosAction";
+import { pedidoInitialState, pedidosReducer } from "../actions/pedidosReducer";
+import CardMenu from "../components/CardMenu";
 // import menu from '../css/menu.css'
-import { getMenus } from '../helpers/fetchMenu';
+import { getMenus } from "../helpers/fetchMenu";
 
 const MenuScreen = () => {
-  const [menus, setMenus] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [menus, setMenus] = useState([]);
 
   useEffect(() => {
     getMenus().then((respuesta) => {
@@ -15,24 +15,34 @@ const MenuScreen = () => {
       let arreglo = [];
 
       Array.from(respuesta.menus).forEach((element) => {
-        const { nombre, precio, img } = element;
+        const { nombre, precio, img, _id } = element;
 
-        arreglo.push({ nombre, precio, img });
+        arreglo.push({ nombre, precio, img, _id });
       });
 
       setMenus([...arreglo]);
-      setLoading(false);
+      // setLoading(false);
     });
   }, []);
-  
+
+  const [state, dispatch] = useReducer(pedidosReducer, pedidoInitialState);
+
+  const { menu, pedido } = state;
+
+  const agregarItem = (_id) => {
+    console.log(_id);
+    dispatch({ type: TYPES.AGREGAR_ITEM, payload: _id });
+  };
+
   return (
     <div className="container">
       <div className="row">
-        <CardMenu menus={menus}/>
+        {menus.map((menu, index) => (
+          <CardMenu key={index} data={menu} agregarItem={agregarItem} />
+        ))}
       </div>
     </div>
-    
-  )
-}
+  );
+};
 
-export default MenuScreen
+export default MenuScreen;

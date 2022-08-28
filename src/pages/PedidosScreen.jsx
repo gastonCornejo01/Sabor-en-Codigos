@@ -1,29 +1,42 @@
 import React from "react";
-import { pedidosReducer } from "../actions/pedidosReducer";
-import CardMenu from "../components/CardMenu";
+import { useState, useEffect, useReducer } from "react";
+import { getMenus } from "../helpers/fetchMenu";
+import { pedidoInitialState, pedidosReducer } from "../actions/pedidosReducer";
+import PedidoApp from "../components/PedidoApp";
 
 const PedidosScreen = () => {
-  const [state, dispatch] = useReducer(pedidosReducer)
+  const [menus, setMenus] = useState([]);
 
-  const agregarItem = (id) => {
-    console.log(id);
-  };
+  useEffect(() => {
+    getMenus().then((respuesta) => {
+      console.log(respuesta);
+      let arreglo = [];
+
+      Array.from(respuesta.menus).forEach((element) => {
+        const { nombre, precio, img, _id } = element;
+
+        arreglo.push({ nombre, precio, img, _id });
+      });
+
+      setMenus([...arreglo]);
+      // setLoading(false);
+    });
+  }, []);
+
+  const [state, dispatch] = useReducer(pedidosReducer, pedidoInitialState);
+
   const eliminarItem = () => {};
   const limpiarPedido = () => {};
 
   return (
-    <div className="fondo mt-0">
-      <div className="animate__animated animate__backInLeft">
-        <div className="container d-flex justify-content-center">
-          <div className="row div-contenedor contain mt-5">
-            <div className="overlay-panel col-md-6 col-sm-12">
-              {menus.map((menu) =>(
-                <CardMenu key={menu.id} data={menu} agregarItem={agregarItem}/>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="container">
+      <h3>Tu Pedido</h3>
+      <button className="btn btn-danger" onClick={limpiarPedido}>
+        Eliminar Pedido
+      </button>
+      {pedido.map((item, index) => (
+        <PedidoApp key={index} data={item} eliminarItem={eliminarItem} />
+      ))}
     </div>
   );
 };
