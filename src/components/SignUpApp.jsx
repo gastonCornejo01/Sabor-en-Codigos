@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "../css/login.css";
+import { postUsuarios } from "../helpers/fecthApiUsuarios";
 
 const SignUpApp = () => {
+  const navigate = useNavigate();
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState(null);
+
+  const registroUsuario =()=>{
+    const datos={
+      nombre,
+      email,
+      password,
+    }
+    postUsuarios(datos).then((respuesta) => {
+      console.log(respuesta)
+    })
+
+
+  }
   return (
     <div className="animate__animated animate__backInRight">
       <div className="container d-flex justify-content-center mt-5">
@@ -33,14 +53,16 @@ const SignUpApp = () => {
                   <i className="fa fa-github-square" aria-hidden="true"></i>
                 </a>
               </div>
-              <input className="input" type="text" placeholder="Nombre" />
-              <input className="input" type="email" placeholder="Email" />
+              <input className="input" type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
+              <input className="input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
               <input
                 className="input"
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Contraseña"
               />
-              <button className="button">Crear</button>
+              <button className="button" onClick={registroUsuario}>Crear</button>
             </form>
           </div>
         </div>

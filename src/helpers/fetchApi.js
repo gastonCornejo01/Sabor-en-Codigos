@@ -1,3 +1,5 @@
+const url="https://backend-proy-final-node.herokuapp.com/api"
+
 //Login de usuario
 export const postAuth = async (datos) => {
   const resp = await fetch(`${url}/auth/login`, {

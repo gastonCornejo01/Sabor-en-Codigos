@@ -1,6 +1,9 @@
 import { TYPES } from "./pedidosAction";
 
 export const pedidoInitialState = {
+  menusPedido: [
+    
+  ],
   pedido: [],
 };
 

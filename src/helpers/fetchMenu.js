@@ -9,6 +9,7 @@ export const postMenus = async (datos) => {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
+      mode: "no-cors",
     });
     const { data } = await resp.json();
 
@@ -24,6 +25,7 @@ export const getMenus = async () => {
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
+    mode: "no-cors",
   });
   const data = await resp.json();
 

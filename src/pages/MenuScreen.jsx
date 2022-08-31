@@ -25,9 +25,14 @@ const MenuScreen = () => {
     });
   }, []);
 
-  const [state, dispatch] = useReducer(pedidosReducer, pedidoInitialState);
+  const [state, dispatch] = useReducer(
+    pedidosReducer,
+    pedidoInitialState
+  );
 
-  const { menu, pedido } = state;
+  
+
+  const { menusPedido, pedido } = state;
 
   const agregarItem = (_id) => {
     console.log(_id);
