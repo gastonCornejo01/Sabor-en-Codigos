@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getMenus,postMenus,putMenus,deleteMenus} from "../helpers/fetchApiMenu";
+import { getMenus,postMenus,putMenus,deleteMenus} from "../helpers/fetchAdmin";
 import {Modal,ModalBody,ModalHeader,ModalFooter} from 'reactstrap'
 
 const AdminApp = () => {
@@ -241,7 +241,7 @@ const AdminApp = () => {
      
     <Modal  isOpen={habmodal}>
             <ModalHeader>
-               <h3>Actualizar Menu</h3>
+               <p>Actualizar Menu</p>
             </ModalHeader>
 
             <ModalBody>
@@ -281,7 +281,7 @@ const AdminApp = () => {
      //modal eliminacion
      <Modal  isOpen={modaldelete}>
      <ModalHeader>
-        <h3>Desea Eliminar el Menu</h3>
+        <p>Desea Eliminar el Menu</p>
      </ModalHeader>
 
      <ModalBody>   
