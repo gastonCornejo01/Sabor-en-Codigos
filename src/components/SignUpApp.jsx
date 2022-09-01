@@ -5,24 +5,46 @@ import "../css/login.css";
 import { postUsuarios } from "../helpers/fecthApiUsuarios";
 
 const SignUpApp = () => {
-  const navigate = useNavigate();
-  const [nombre, setNombre] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState(null);
+  const [formValues, setFormValues] = useState({
+    nombre: "",
+    email: "",
+    password: "",
+    role: "USER_ROLE",
+  });
 
-  const registroUsuario =()=>{
-    const datos={
-      nombre,
-      email,
-      password,
-    }
-    postUsuarios(datos).then((respuesta) => {
-      console.log(respuesta)
-    })
+  const [message, setMessage] = useState([]);
+
+  const handleChange = (e) => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    postUsuarios(formValues).then((respuesta) => {
+      console.log(respuesta);
+      if (respuesta?.errors) {
+        setMessage(respuesta.errors);
+      } else {
+        setMessage([{ ok: true, msg: "Registro exitoso!" }]);
+        setFormValues({
+          nombre: "",
+          email: "",
+          password: "",
+          role: "USER_ROLE",
+        });
+        setTimeout(() => {
+          setMessage([]);
+        }, 2000);
+      }
+    });
+  };
 
 
-  }
+  
   return (
     <div className="animate__animated animate__backInRight">
       <div className="container d-flex justify-content-center mt-5">
@@ -37,7 +59,7 @@ const SignUpApp = () => {
             </div>
           </div>
           <div className="overlay-panel col-md-6 col-sm-12">
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit}>
               <h1>Crear nueva Cuenta</h1>
               <div className="social-container">
                 <a
@@ -53,17 +75,32 @@ const SignUpApp = () => {
                   <i className="fa fa-github-square" aria-hidden="true"></i>
                 </a>
               </div>
-              <input className="input" type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
-              <input className="input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+              <input className="input" type="text" name="nombre" value={formValues.nombre} onChange={handleChange} placeholder="Nombre" />
+              <input className="input" type="email" name="email" value={formValues.email} onChange={handleChange} placeholder="Email" />
               <input
                 className="input"
                 type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                name="password"
+                value={formValues.password}
+                onChange={handleChange}
                 placeholder="Contraseña"
               />
-              <button className="button" onClick={registroUsuario}>Crear</button>
+              <button className="button">Crear</button>
             </form>
+            {message.length > 0 &&
+            message.map((item, index) => (
+              <div
+                className={
+                  item?.ok
+                    ? "alert alert-success mt-3"
+                    : "alert alert-danger mt-3"
+                }
+                role="alert"
+                key={index}
+              >
+                {item.msg}
+                </div>
+            ))}
           </div>
         </div>
       </div>
