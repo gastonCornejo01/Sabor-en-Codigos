@@ -34,7 +34,7 @@ const SignUpApp = () => {
           nombre: "",
           email: "",
           password: "",
-          role: "USER_ROLE",
+          role: "USER-ROLE",
         });
         setTimeout(() => {
           setMessage([]);

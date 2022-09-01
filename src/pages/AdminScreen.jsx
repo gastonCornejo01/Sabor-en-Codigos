@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import AdminApp from "../components/AdminApp";
 
 const AdminScreen = () => {
-  return (
-    <div>AdminScreen</div>
-  )
-}
+  return <AdminApp />;
+};
 
-export default AdminScreen
+export default AdminScreen;

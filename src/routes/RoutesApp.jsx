@@ -6,6 +6,7 @@ import ErrorScreen from '../pages/ErrorScreen'
 import MenuScreen from "../pages/MenuScreen";
 import SignInApp from "../components/SignInApp";
 import SignUpApp from "../components/SignUpApp";
+import AdminScreen from "../pages/AdminScreen";
 
 const RoutesApp = () => {
   return (
@@ -16,6 +17,7 @@ const RoutesApp = () => {
         <Route path="/menu" element={<MenuScreen />} />
         <Route path="/iniciar" element={<SignInApp />} />
         <Route path="/registrar" element={<SignUpApp />} />
+        <Route path="/admin" element={<AdminScreen />} />
         <Route path="*" element={<ErrorScreen />} />
     </Routes>
 
