@@ -6,10 +6,13 @@ import { postUsuarios } from "../helpers/fecthApiUsuarios";
 
 const SignUpApp = () => {
   const [formValues, setFormValues] = useState({
+    _id: "",
     nombre: "",
     email: "",
     password: "",
-    role: "USER_ROLE",
+    role: "USERS_ROLE",
+    estado: true,
+    img : ""
   });
 
   const [message, setMessage] = useState([]);
@@ -23,18 +26,21 @@ const SignUpApp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  console.log(formValues);
     postUsuarios(formValues).then((respuesta) => {
-      console.log(respuesta);
+      //console.log(respuesta);
       if (respuesta?.errors) {
         setMessage(respuesta.errors);
       } else {
         setMessage([{ ok: true, msg: "Registro exitoso!" }]);
         setFormValues({
+          _id: "",
           nombre: "",
           email: "",
           password: "",
-          role: "USER-ROLE",
+          role: "USERS_ROLE",
+          estado: true,
+          img : ""                    
         });
         setTimeout(() => {
           setMessage([]);

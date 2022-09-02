@@ -3,7 +3,6 @@ const url="https://backend-proy-final-node.herokuapp.com/api"
 // const url="http://localhost:8080/api"
 
 
-//funcion para obtener gifs trending, USO EL export para poder llmarla desde un componente
 export const postMenus = async (datos) => {
   try {
     const resp = await fetch(
