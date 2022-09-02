@@ -17,10 +17,11 @@ const SignInApp = () => {
       password,
     };
     postAuth(datos).then((respuesta) => {
-      console.log(respuesta);
-      if (respuesta?.token) {
+      console.log(datos);
+      console.log(respuesta.usuario);
+      if (respuesta.usuario?.uid) {
         setMessage({ ok: true, msg: "Login ok" });
-        localStorage.setItem("token", JSON.stringify(respuesta.token));
+        localStorage.setItem("uid", JSON.stringify(respuesta.uid));
         navigate("/");
       } else {
         setMessage(respuesta);
@@ -73,10 +74,10 @@ const SignInApp = () => {
                         ? "alert alert-success mt-3"
                         : "alert alert-danger mt-3"
                     }
-					role="alert"
+                    role="alert"
                   >
-					{message.msg}
-				  </div>
+                    {message.msg}
+                  </div>
                 )}
               </form>
             </div>

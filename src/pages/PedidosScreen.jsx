@@ -1,19 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PedidoApp from "../components/PedidoApp";
 import { postPedidos } from "../helpers/fetchApiPedidos";
 import { useNavigate } from "react-router-dom";
 
-
-
-const PedidosScreen = ({pedido, setPedido}) => {
+const PedidosScreen = ({ pedido, setPedido }) => {
   const navigate = useNavigate();
   const eliminarItem = (id) => {
-    console.log(id)
-    setPedido(pedido.filter(menu => {
-      console.log(menu)
-      return menu._id != id
-    }))
-
+    console.log(id);
+    setPedido(
+      pedido.filter((menu) => {
+        console.log(menu);
+        return menu._id != id;
+      })
+    );
 
     // console.log(pedido)
   };
@@ -27,47 +26,68 @@ const PedidosScreen = ({pedido, setPedido}) => {
     // postPedidos(pedido).then((respuesta) => {
     //   console.log(respuesta)
     // })
-    navigate('/pedidoConfirmado')
-    limpiarPedido()
-  }
+    navigate("/pedidoConfirmado");
+    limpiarPedido();
+  };
 
   const buscarIndex = (id) => {
-    let index = pedido.findIndex((obj) => (
-      obj._id === id
-    ))
+    let index = pedido.findIndex((obj) => obj._id === id);
     return index;
-  }
+  };
 
   const sumarCantidad = (id) => {
-    let index = buscarIndex(id)
-    pedido[index].cantidad += 1
-    setPedido([...pedido])
+    let index = buscarIndex(id);
+    pedido[index].cantidad += 1;
+    pedido[index].precio *= pedido[index].cantidad;
+    setPedido([...pedido]);
     // console.log(id)
-    console.log(pedido)
-  }
+    console.log(pedido);
+  };
 
   const restarCantidad = (id) => {
-    let index = buscarIndex(id)
-    if(pedido[index].cantidad != 1 )pedido[index].cantidad -= 1
-    setPedido([...pedido])
+    let index = buscarIndex(id);
+    if (pedido[index].cantidad != 1) pedido[index].cantidad -= 1;
+    setPedido([...pedido]);
     // console.log(id)
-    console.log(pedido)
-  }
+    console.log(pedido);
+  };
+
+  const [precioTotal, setPrecioTotal] = useState(0);
+  useEffect(() => {
+    for (let index = 0; index < pedido.length; index += 1) {
+      let total = pedido.reduce(function (prev, current) {
+        return prev + current.precio;
+      }, 0);
+      setPrecioTotal(total);
+      console.log(precioTotal);
+    }
+  }, [pedido]);
 
   return (
     <div className="container">
       <h3>Tu Pedido</h3>
       <div className="row">
-      {pedido.map((item, index) => (
-        <PedidoApp key={index} data={item} eliminarItem={eliminarItem} sumarCantidad={sumarCantidad} restarCantidad={restarCantidad} />
-      ))}
+        {pedido.map((item, index) => (
+          <PedidoApp
+            key={index}
+            data={item}
+            eliminarItem={eliminarItem}
+            sumarCantidad={sumarCantidad}
+            restarCantidad={restarCantidad}
+          />
+        ))}
       </div>
-      <button className="btn btn-danger" onClick={limpiarPedido}>
-        Eliminar Pedido
-      </button>
-      <button className="btn btn-success" onClick={confirmarPedido}>
-        Confirmar Pedido
-      </button>
+      <div className="row">
+        <button className="btn btn-danger" onClick={limpiarPedido}>
+          Eliminar Pedido
+        </button>
+
+        <h3>Total pedido: ${precioTotal}</h3>
+
+        <button className="btn btn-success" onClick={confirmarPedido}>
+          Confirmar Pedido
+        </button>
+      </div>
     </div>
   );
 };

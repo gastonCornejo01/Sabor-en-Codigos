@@ -13,4 +13,5 @@ export const postAuth = async (datos) => {
   const data = await resp.json();
 
   return data;
+  
 };

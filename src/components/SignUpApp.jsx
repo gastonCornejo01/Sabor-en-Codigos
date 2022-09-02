@@ -6,7 +6,7 @@ import { postUsuarios } from "../helpers/fecthApiUsuarios";
 
 const SignUpApp = () => {
   const [formValues, setFormValues] = useState({
-    _id: "",
+    id: "",
     nombre: "",
     email: "",
     password: "",
