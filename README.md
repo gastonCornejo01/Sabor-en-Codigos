@@ -14,8 +14,8 @@ y se guardan en una base de datos en la nube (MongoDB).
 
 ## Para iniciar sesión como Administrador:
 
-usuario: # 
-password: #
+- usuario: # 
+- password: #
 
 - De lo contrario loguearse como Usuario desde el apartado Login.
 
