@@ -48,6 +48,6 @@ Las dependencias se instalarán automáticamente.
 
 - Osman, Franco 
 - Barreiro, Eduardo
-- Cornejo, Gaston 
+- Cornejo, Gastón 
 - Seme,Daniel 
-- Figueroa Ruesgas, Tomas 
+- Figueroa Ruesjas, Tomás 

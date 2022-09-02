@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/cardMenu.css";
 
-const CardMenu = ({ data }) => {
+const CardMenu = ({ data, agregarItem }) => {
   if (data) {
     let { _id, nombre, precio, img } = data;
     // console.log(data);
@@ -21,11 +21,11 @@ const CardMenu = ({ data }) => {
                     className="card-img-top img_paginas animate__animated animate__fadeIn"
                     alt={nombre}
                   />
-              <p className="card-text">
+              {/* <p className="card-text">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius
                 voluptatum ratione dolorem tempore sed ab amet porro vel
                 veritatis ad?
-              </p>
+              </p> */}
             </div>
             <div className="card-footer bg-">
               <div className="row  footer">
@@ -35,7 +35,7 @@ const CardMenu = ({ data }) => {
                 <div className="col-4 offset-4">
                   <button
                     className="btn btn-success"
-                    // onClick={() => agregarItem(_id)}
+                    onClick={() => agregarItem(data)}
                   >
                     Añadir+
                   </button>

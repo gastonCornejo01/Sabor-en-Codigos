@@ -31,7 +31,7 @@ const SignInApp = () => {
     <div className="fondo mt-0">
       <div className="animate__animated animate__backInLeft">
         <div className="container d-flex justify-content-center">
-          <div className="row div-contenedor contain mt-5">
+          <div className="row div-contenedor contain m-5">
             <div className="overlay-panel col-md-6 col-sm-12">
               <form className="form">
                 <h1>Iniciar Sesión</h1>
