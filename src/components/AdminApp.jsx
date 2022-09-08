@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../css/admin.css"
+import "../css/admin.css";
 import {
   getMenus,
   postMenus,
@@ -7,9 +7,12 @@ import {
   deleteMenus,
 } from "../helpers/fetchAdmin";
 import { Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
+import { getCategoria } from "../helpers/fetchApiCateg";
 
 const AdminApp = () => {
   const [menus, setMenus] = useState([]);
+  const [categoria, setCategoria] = useState("");
+  const [categorias, setCategorias] = useState([]);
   const [loading, setLoading] = useState(true);
   const [formValues, setFormValues] = useState({
     _id: "",
@@ -85,7 +88,6 @@ const AdminApp = () => {
 
   useEffect(() => {
     getMenus().then((respuesta) => {
-      console.log(respuesta.menus);
       let arreglo = [];
 
       respuesta.menus.forEach((element) => {
@@ -97,6 +99,14 @@ const AdminApp = () => {
       setLoading(false);
     });
   }, [formValues]);
+
+  useEffect(() => {
+    getCategoria().then((respuesta) => {
+      console.log(respuesta.categorias);
+
+      setCategorias([...respuesta.categorias]);
+    });
+  }, []);
 
   const handleChange = (e) => {
     setFormValues({
@@ -142,25 +152,34 @@ const AdminApp = () => {
                 name="nombre"
                 className="form-control"
                 type="text"
+                maxLength={40}
                 required
                 value={formValues.nombre}
                 onChange={handleChange}
               />
 
               <label>Categoria</label>
-              <input
-                name="nombcateg"
-                className="form-control"
-                type="text"
-                value={formValues.nombcateg}
-                onChange={handleChange}
-              />
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                onChange={(e) => setCategoria(e.target.value)}
+              >
+                <option value={categoria}>Seleccionar Categoria</option>
+                {categorias.map((cat) => (
+                  <option key={cat._id} value={cat._id}>
+                    {cat.nombre}
+                  </option>
+                ))}
+              </select>
 
               <label>Precio</label>
               <input
                 name="precio"
                 className="form-control"
-                type="text"
+                type="number"
+                min={1}
+                max={100000}
+                required
                 value={formValues.precio}
                 onChange={handleChange}
               />
@@ -169,14 +188,14 @@ const AdminApp = () => {
               <input
                 name="img"
                 className="form-control"
-                type="text"
+                type="url"
                 placeholder="Ingrese una url"
                 value={formValues.img}
                 onChange={handleChange}
                 required
               />
 
-              <br/>
+              <br />
 
               <label>Activar</label>
               <select
@@ -243,7 +262,7 @@ const AdminApp = () => {
           </div>
         </div>
       </div>
-      <Modal isOpen={habmodal} >
+      <Modal isOpen={habmodal}>
         <ModalHeader>
           <p>Actualizar Menu</p>
         </ModalHeader>
