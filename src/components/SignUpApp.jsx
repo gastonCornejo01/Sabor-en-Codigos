@@ -5,6 +5,7 @@ import "../css/login.css";
 import { postUsuarios } from "../helpers/fecthApiUsuarios";
 
 const SignUpApp = () => {
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     id: "",
     nombre: "",
@@ -12,7 +13,11 @@ const SignUpApp = () => {
     password: "",
     role: "USERS_ROLE",
     estado: true,
-    img : ""
+    img: "",
+  });
+
+  const [verificarPassword, setVerificarPassword] = useState({
+    password1: "",
   });
 
   const [message, setMessage] = useState([]);
@@ -22,35 +27,43 @@ const SignUpApp = () => {
       ...formValues,
       [e.target.name]: e.target.value,
     });
+    setVerificarPassword({
+      ...verificarPassword,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  console.log(formValues);
-    postUsuarios(formValues).then((respuesta) => {
-      //console.log(respuesta);
-      if (respuesta?.errors) {
-        setMessage(respuesta.errors);
-      } else {
-        setMessage([{ ok: true, msg: "Registro exitoso!" }]);
-        setFormValues({
-          _id: "",
-          nombre: "",
-          email: "",
-          password: "",
-          role: "USERS_ROLE",
-          estado: true,
-          img : ""                    
-        });
-        setTimeout(() => {
-          setMessage([]);
-        }, 2000);
-      }
-    });
+    console.log(formValues);
+    if (formValues.password === verificarPassword.password1) {
+      postUsuarios(formValues).then((respuesta) => {
+        //console.log(respuesta);
+        if (respuesta?.errors) {
+          setMessage(respuesta.errors);
+        } else {
+          setMessage([{ ok: true, msg: "Registro exitoso!" }]);
+          setFormValues({
+            _id: "",
+            nombre: "",
+            email: "",
+            password: "",
+            role: "USERS_ROLE",
+            estado: true,
+            img: "",
+          });
+          setTimeout(() => {
+            setMessage([]);
+          }, 2000);
+          navigate("/login");
+        }
+      });
+    } else {
+      document.getElementById("error").classList.add("mostrar");
+ 
+      return false;    }
   };
 
-
-  
   return (
     <div className="animate__animated animate__backInRight">
       <div className="container d-flex justify-content-center">
@@ -65,6 +78,12 @@ const SignUpApp = () => {
             </div>
           </div>
           <div className="overlay-panel col-md-6 col-sm-12">
+            <div className="mt-3" id="msg"></div>
+
+            {/* Mensajes de Verificación */}
+            <div id="error" className="alert alert-danger ocultar" role="alert">
+              Las Contraseñas no coinciden, vuelve a intentar !
+            </div>
             <form className="form" onSubmit={handleSubmit}>
               <h1>Crear nueva Cuenta</h1>
               <div className="social-container">
@@ -81,32 +100,60 @@ const SignUpApp = () => {
                   <i className="fa fa-github-square" aria-hidden="true"></i>
                 </a>
               </div>
-              <input className="input" type="text" name="nombre" value={formValues.nombre} onChange={handleChange} placeholder="Nombre" />
-              <input className="input" type="email" name="email" value={formValues.email} onChange={handleChange} placeholder="Email" />
+              <input
+                className="input"
+                type="text"
+                name="nombre"
+                maxLength="25"
+                value={formValues.nombre}
+                onChange={handleChange}
+                placeholder="Nombre"
+                required
+              />
+              <input
+                className="input"
+                type="email"
+                name="email"
+                maxLength="50"
+                value={formValues.email}
+                onChange={handleChange}
+                placeholder="Email"
+                required
+              />
               <input
                 className="input"
                 type="password"
                 name="password"
+                maxLength="30"
                 value={formValues.password}
                 onChange={handleChange}
                 placeholder="Contraseña"
               />
-              <button className="button">Crear</button>
+              <input
+                className="input"
+                type="password"
+                name="password1"
+                maxLength="30"
+                value={verificarPassword.password1}
+                onChange={handleChange}
+                placeholder="Repetir Contraseña"
+              />
+              <button className="button mb-3">Crear</button>
             </form>
             {message.length > 0 &&
-            message.map((item, index) => (
-              <div
-                className={
-                  item?.ok
-                    ? "alert alert-success mt-3"
-                    : "alert alert-danger mt-3"
-                }
-                role="alert"
-                key={index}
-              >
-                {item.msg}
+              message.map((item, index) => (
+                <div
+                  className={
+                    item?.ok
+                      ? "alert alert-success mt-3"
+                      : "alert alert-danger mt-3"
+                  }
+                  role="alert"
+                  key={index}
+                >
+                  {item.msg}
                 </div>
-            ))}
+              ))}
           </div>
         </div>
       </div>
