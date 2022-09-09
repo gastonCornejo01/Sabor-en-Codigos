@@ -136,89 +136,90 @@ const AdminApp = () => {
   };
   return (
     <>
-      <div className="container">
-        <div className="row mt-5">
-          <div className="col text-white">
-            <h1>Administración de Menus</h1>
-            <hr />
-          </div>
-        </div>
-        <div className="row mb-3 text-white">
-          <div className="col-12 col-md-6 offset-md-3 form_curso">
-            <h3>Agregar Menu</h3>
-            <form onSubmit={handleSubmit}>
-              <label>Nombre</label>
-              <input
-                name="nombre"
-                className="form-control"
-                type="text"
-                maxLength={40}
-                required
-                value={formValues.nombre}
-                onChange={handleChange}
-              />
+      <div className="fondo mt-0">
+        <div className="animate__animated animate__backInLeft">
+          <div className="container d-flex justify-content-center">
+            <div className="row div-contenedor contain m-5">
+              <div className="overlay-panel col-sm-12">
+                <h1>Administración de Menus</h1>
+              </div>
+              <div className="col-12 col-md-6 offset-md-3 mb-3 form_curso background-welcome">
+                <form onSubmit={handleSubmit}>
+                  <div className="d-flex justify-content-center">
+                    <h3>Agregar Menu</h3>
+                  </div>
 
-              <label>Categoria</label>
-              <select
-                name="nombcateg"
-                className="form-select"
-                aria-label="Default select example"
-                required
-                value={formValues.nombcateg}
-                onChange={handleChange}
-              >
-                <option
-                  value={categoria}
-                  onChange={(e) => setCategoria(e.target.value)}
-                >
-                  Seleccionar Categoria
-                </option>
-                {categorias.map((cat) => (
-                  <option key={cat._id} value={cat.nombre}>
-                    {cat.nombre}
-                  </option>
-                ))}
-              </select>
+                  <input
+                    name="nombre"
+                    className="input"
+                    type="text"
+                    maxLength={40}
+                    required
+                    value={formValues.nombre}
+                    onChange={handleChange}
+                    placeholder="Nombre del Producto"
+                  />
 
-              <label>Precio</label>
-              <input
-                name="precio"
-                className="form-control"
-                type="number"
-                min={1}
-                max={100000}
-                required
-                value={formValues.precio}
-                onChange={handleChange}
-              />
+                  <select
+                    name="nombcateg"
+                    className="input"
+                    aria-label="Default select example"
+                    required
+                    value={formValues.nombcateg}
+                    onChange={handleChange}
+                  >
+                    <option
+                      value={categoria}
+                      onChange={(e) => setCategoria(e.target.value)}
+                    >
+                      Categoria
+                    </option>
+                    {categorias.map((cat) => (
+                      <option key={cat._id} value={cat.nombre}>
+                        {cat.nombre}
+                      </option>
+                    ))}
+                  </select>
 
-              <label>Imagen</label>
-              <input
-                name="img"
-                className="form-control"
-                type="url"
-                placeholder="Ingrese una url"
-                value={formValues.img}
-                onChange={handleChange}
-                required
-              />
+                  <input
+                    name="img"
+                    className="input"
+                    type="url"
+                    required
+                    value={formValues.img}
+                    onChange={handleChange}
+                    placeholder="Imagen (url)"
+                  />
+                  <label>$Precio$</label>
+                  <input
+                    name="precio"
+                    className="input"
+                    type="number"
+                    min={1}
+                    max={100000}
+                    required
+                    value={formValues.precio}
+                    onChange={handleChange}
+                    placeholder=""
+                  />
 
-              <br />
+                  <br />
 
-              <label>Activar</label>
-              <select
-                name="activo"
-                value={formValues.activo}
-                onChange={handleChange}
-              >
-                <option value="true">si</option>
-                <option value="false">no</option>
-              </select>
-
-              <button className="btn btn-primary mt-3 float-end">
-                Guardar
-              </button>
-            </form>
+                  <label>Activar</label>
+                  <select
+                    name="activo"
+                    value={formValues.activo}
+                    onChange={handleChange}
+                  >
+                    <option value="true">si</option>
+                    <option value="false">no</option>
+                  </select>
+                  <div className="d-flex justify-content-center">
+                    <button className="button m-3">Guardar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -245,7 +246,7 @@ const AdminApp = () => {
                       <th scope="row">{index + 1}</th>
                       <td>{menu.nombre}</td>
                       <td>{menu.nombcateg}</td>
-                      <td>{menu.precio}</td>
+                      <td>${menu.precio}</td>
                       <td>
                         <button
                           className="btn btn-warning"
@@ -345,7 +346,7 @@ const AdminApp = () => {
           </button>
         </ModalFooter>
       </Modal>
-      //modal eliminacion
+      {/* modal eliminacion */}
       <Modal isOpen={modaldelete}>
         <ModalHeader>
           <p>Desea Eliminar el Menu</p>
