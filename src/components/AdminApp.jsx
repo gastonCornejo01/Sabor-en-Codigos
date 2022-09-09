@@ -160,13 +160,21 @@ const AdminApp = () => {
 
               <label>Categoria</label>
               <select
+                name="nombcateg"
                 className="form-select"
                 aria-label="Default select example"
-                onChange={(e) => setCategoria(e.target.value)}
+                required
+                value={formValues.nombcateg}
+                onChange={handleChange}
               >
-                <option value={categoria}>Seleccionar Categoria</option>
+                <option
+                  value={categoria}
+                  onChange={(e) => setCategoria(e.target.value)}
+                >
+                  Seleccionar Categoria
+                </option>
                 {categorias.map((cat) => (
-                  <option key={cat._id} value={cat._id}>
+                  <option key={cat._id} value={cat.nombre}>
                     {cat.nombre}
                   </option>
                 ))}
