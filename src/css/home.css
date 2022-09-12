@@ -18,11 +18,19 @@
     width: 100%;
 }
 
-/* .carousel-destacado{
-    height: 30vh;
-} */
-
+.carousel-inner{
+    height: 50vh;
+}
 .image-carousel{
-    height: 40vh;
+    height: 50vh;
     object-fit: cover;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.carousel-caption{
+    background-color: rgba(0, 0, 0, 0.9);
+    margin-bottom: 50px;
+    border-radius: 10px;
+    
 }

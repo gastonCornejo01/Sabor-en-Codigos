@@ -8,7 +8,7 @@ const HomeScreen = () => {
     <div className="container-home">
       <div className="contenedor">
         <div className="row w-100">
-          <div className="col-12 frase-home animate__animated animate__fadeInDown mt-5 p-5">
+          <div className="col-12 frase-home animate__animated animate__fadeInDown mt-1 p-5">
             <hr />
             <h1>"Quédate con quien se preocupe si ya comiste."</h1>
             <h2>
@@ -56,9 +56,7 @@ const HomeScreen = () => {
                   />
                   <div className="carousel-caption d-none d-md-block">
                     <h5>Una Experiencia Única🍽</h5>
-                    <p>
-                      Platos programados para deleitar tus sentidos💻
-                    </p>
+                    <p>Platos programados para deleitar tus sentidos💻</p>
                   </div>
                 </div>
                 <div className="carousel-item">
@@ -72,7 +70,8 @@ const HomeScreen = () => {
                   <div className="carousel-caption d-none d-md-block">
                     <h5>No pierdas el Tiempo!⌚</h5>
                     <p>
-                      Ingenieria aplicada a los alimentos para alcanzar nuevos Horizontes🌅
+                      Ingenieria aplicada a los alimentos para alcanzar nuevos
+                      Horizontes🌅
                     </p>
                   </div>
                 </div>
@@ -86,9 +85,7 @@ const HomeScreen = () => {
                   />
                   <div className="carousel-caption d-none d-md-block">
                     <h5>Realiza tu pedido en un solo click!🖱</h5>
-                    <p>
-                      No te arrepentiras de sumarte a la Experiencia🎉
-                    </p>
+                    <p>No te arrepentiras de sumarte a la Experiencia🎉</p>
                   </div>
                 </div>
               </div>
@@ -119,24 +116,25 @@ const HomeScreen = () => {
             </div>
             {/* FIN DE CARROUSEL */}
 
-            <h3>
+            <h3 className="mt-4">
               Nuestro único objetivo es que alimentes tu cuerpo, pero tambien tu
               alma. Te invitamos a ver nuestro menú.
             </h3>
-            <hr />
+
             <NavLink to="/menu">
-              <button className="btn btn-success">Ver menú</button>
+              <button className="btn btn-success mt-4">Ver menú</button>
             </NavLink>
+            <hr />
             <div className="d-flex justify-content-center">
               <form className="col-md-8 col-sm-12 d-flex mt-5">
                 <input
                   className="form-control me-2"
                   type="search"
-                  placeholder="Search"
+                  placeholder="Buscar"
                   aria-label="Search"
                 />
                 <button className="btn btn-success" type="submit">
-                  Search
+                  Buscar
                 </button>
               </form>
             </div>
