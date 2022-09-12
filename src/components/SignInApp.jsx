@@ -11,30 +11,38 @@ const SignInApp = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState(null);
 
-  const validarDatos = () => {
+  const validarDatos = (e) => {    
+    e.preventDefault(); //desactivo el envio por defecto    
+
     const datos = {
       email,
       password,
     };
-    postAuth(datos).then((respuesta) => {
-      console.log(datos);
-      console.log(respuesta.usuario);
-      if (respuesta.usuario?.uid) {
-        setMessage({ ok: true, msg: "Login ok" });
-        localStorage.setItem("uid", JSON.stringify(respuesta.uid));
-        navigate("/");
-      } else {
-        setMessage(respuesta);
+
+    console.log(datos);
+    postAuth(datos).then((respuesta) => { 
+      
+      console.log(respuesta);
+     if (respuesta?.msg) {
+          setMessage(respuesta);         
+          navigate("/");
+      } else {        
+          setMessage({ ok: true, msg: "Login ok" });
+          //localStorage.setItem("token", JSON.stringify(respuesta.usuario.nombre));
+          navigate("/");        
       }
+       
     });
   };
+
+
   return (
     <div className="fondo mt-0">
       <div className="animate__animated animate__backInLeft">
         <div className="container d-flex justify-content-center">
-          <div className="row div-contenedor contain m-5">
+          <div className="row div-contenedor contain mt-5">
             <div className="overlay-panel col-md-6 col-sm-12">
-              <form className="form">
+              <form className="form" onSubmit={validarDatos}>
                 <h1>Iniciar Sesión</h1>
                 <div className="social-container">
                   <a
@@ -51,20 +59,24 @@ const SignInApp = () => {
                   </a>
                 </div>
                 <input
+                  name="email"                 
                   className="input"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email"
+                  required
                 />
                 <input
+                  name="password" 
                   className="input"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Contraseña"
+                  placeholder="Contraseña"                  
+                  required
                 />
-                <button className="button" onClick={validarDatos}>
+                <button className="button">
                   Iniciar Sesion
                 </button>
                 {message && (
@@ -74,10 +86,10 @@ const SignInApp = () => {
                         ? "alert alert-success mt-3"
                         : "alert alert-danger mt-3"
                     }
-                    role="alert"
+					role="alert"
                   >
-                    {message.msg}
-                  </div>
+					{message.msg}
+				  </div>
                 )}
               </form>
             </div>

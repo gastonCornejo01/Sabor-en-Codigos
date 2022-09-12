@@ -32,18 +32,22 @@ const RoutesApp = () => {
     }, [])
   return (
     <Routes>
-        <Route path="/" element={<HomeScreen />} />
-        <Route path="/login" element={<LoginScreen />} />
-        <Route path="/pedidos" element={<PedidosScreen pedido={pedido} setPedido={setPedido}/>} />
-        <Route path="/menu" element={<MenuScreen menus={menus} pedido={pedido} setPedido={setPedido}/>} />
+        
+        <Route path="/login" element={<LoginScreen />} />        
+        <Route path="/pedidos" element={<PedidosScreen pedido={pedido} setPedido={setPedido}/>} />        
+        <Route path="/menu" element={<MenuScreen />} />
         <Route path="/iniciar" element={<SignInApp />} />
-        <Route path="/registrar" element={<SignUpApp />} />
-        <Route path="/pedidoConfirmado" element={<PedidoConfirmadoScreen />} />
+        <Route path="/registrar" element={<SignUpApp />} />  
         <Route path="/admin" element={<AdminScreen />} />
         <Route path="*" element={<ErrorScreen />} />
+        <Route path="/" element={<HomeScreen />} />        
     </Routes>
 
     )
 }
 
 export default RoutesApp
+
+//<Route path="/pedidos" element={<PedidosScreen pedido={pedido} setPedido={setPedido}/>} />
+//<Route path="/menu" element={<MenuScreen menus={menus} pedido={pedido} setPedido={setPedido}/>} />
+//<Route path="/pedidoConfirmado" element={<PedidoConfirmadoScreen />} />
