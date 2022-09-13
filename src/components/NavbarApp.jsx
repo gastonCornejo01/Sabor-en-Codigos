@@ -24,7 +24,7 @@ const NavbarApp = () => {
           className="collapse navbar-collapse justify-content-between"
           id="navbarNav"
         >
-          <ul className="navbar-nav">
+          <ul className="navbar-nav t-texto">
             <li className="nav-item mx-2">
               <NavLink
                 className="nav-link text-light"

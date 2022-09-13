@@ -1,7 +1,6 @@
 const url="https://backend-proy-final-node.herokuapp.com/api"
 
 
-//funcion para obtener gifs trending, USO EL export para poder llmarla desde un componente
 export const postCategoria = async (datos) => {
   try {
     const resp = await fetch(

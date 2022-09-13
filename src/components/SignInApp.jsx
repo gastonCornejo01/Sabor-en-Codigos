@@ -29,7 +29,7 @@ const SignInApp = () => {
     });
   };
   return (
-    <div className="fondo mt-0">
+    <div className="mt-0">
       <div className="animate__animated animate__backInLeft">
         <div className="container d-flex justify-content-center">
           <div className="row div-contenedor contain m-5">

@@ -6,14 +6,14 @@ const CardMenu = ({ data, agregarItem }) => {
     let { _id, nombre, precio, img } = data;
     // console.log(data);
     return (
-      <div className="col-lg-4 col-md-6 col-sm-12 mt-5 tarjeta">
+      <div className="col-lg-4 col-md-6 col-sm-12 mt-5">
         <div
           className="mb-3 animate__animated animate__fadeIn"
           key={_id}
         >
           <div className="card mb-3 border border-dark">
             <div className="card-title container fondo-titulo">
-              <h5 className="mt-2  text-white">{nombre}</h5>
+              <h3 className="mt-2  text-white">{nombre}</h3>
             </div>
             <div className="card-body fondo-body">
               <img

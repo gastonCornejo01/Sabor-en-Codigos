@@ -136,7 +136,7 @@ const AdminApp = () => {
   };
   return (
     <>
-      <div className="fondo mt-0">
+      <div className="mt-0">
         <div className="animate__animated animate__backInLeft">
           <div className="container d-flex justify-content-center">
             <div className="row div-contenedor contain m-5">
@@ -223,50 +223,53 @@ const AdminApp = () => {
           </div>
         </div>
 
-        <div className="row container">
+        <div className="container">
           <div className="col text-white">
             {loading ? (
               <div className="col-6 offset-3">
                 <h3 className="text-white text-center">Cargando...</h3>
               </div>
             ) : (
-              <table className="table text-white">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Precio</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody id="table_body">
-                  {menus.map((menu, index) => (
-                    <tr key={index}>
-                      <th scope="row">{index + 1}</th>
-                      <td>{menu.nombre}</td>
-                      <td>{menu.nombcateg}</td>
-                      <td>${menu.precio}</td>
-                      <td>
-                        <button
-                          className="btn btn-warning"
-                          onClick={() => hola(menu, "actualizar")}
-                        >
-                          Editar
-                        </button>
-                      </td>
-                      <td>
-                        <button
-                          className="btn btn-danger"
-                          onClick={() => hola(menu, "eliminar")}
-                        >
-                          Eliminar
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <div className="d-flex justify-content-center">
+                <div className="w-100">
+                  <table className="fondo table text-white">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Precio</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody id="table_body">
+                      {menus.map((menu, index) => (
+                        <tr key={index}>
+                          <th scope="row">{index + 1}</th>
+                          <td>{menu.nombre}</td>
+                          <td>{menu.nombcateg}</td>
+                          <td>${menu.precio}</td>
+                          <td>
+                            <button
+                              className="btn btn-warning"
+                              onClick={() => hola(menu, "actualizar")}
+                            >
+                              <i className="fa fa-pencil" aria-hidden="true"></i>
+
+                            </button>
+                            <button
+                              className="btn btn-danger float-end"
+                              onClick={() => hola(menu, "eliminar")}
+                            >
+                              <i className="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             )}
           </div>
         </div>
