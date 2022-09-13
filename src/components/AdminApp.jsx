@@ -100,21 +100,12 @@ const AdminApp = () => {
     });
   }, [formValues]);
 
-  useEffect(() => {
-    getCategoria().then((respuesta) => {
-      console.log(respuesta.categorias);
-
-      setCategorias([...respuesta.categorias]);
-    });
-  }, []);
-
   const handleChange = (e) => {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
     });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault(); //desactivo el envio por defecto
 
@@ -133,7 +124,16 @@ const AdminApp = () => {
     const actualizarmenus = (menuactual, tipo) => {
       setMenuselecc({ menuactual });
     };
+    useEffect(() => {
+      getCategoria().then((respuesta) => {
+        console.log(respuesta.categorias);
+
+        setCategorias([...respuesta.categorias]);
+      });
+    }, []);
+    
   };
+
   return (
     <>
       <div className="mt-0">
