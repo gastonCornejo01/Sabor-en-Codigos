@@ -87,6 +87,13 @@ const AdminApp = () => {
   };
 
   useEffect(() => {
+    getCategoria().then((respuesta) => {
+      console.log(respuesta.categorias);
+
+      setCategorias([...respuesta.categorias]);
+    });
+  }, []);
+  useEffect(() => {
     getMenus().then((respuesta) => {
       let arreglo = [];
 
@@ -124,13 +131,7 @@ const AdminApp = () => {
     const actualizarmenus = (menuactual, tipo) => {
       setMenuselecc({ menuactual });
     };
-    useEffect(() => {
-      getCategoria().then((respuesta) => {
-        console.log(respuesta.categorias);
 
-        setCategorias([...respuesta.categorias]);
-      });
-    }, []);
     
   };
 
@@ -200,7 +201,6 @@ const AdminApp = () => {
                     required
                     value={formValues.precio}
                     onChange={handleChange}
-                    placeholder=""
                   />
 
                   <br />

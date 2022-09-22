@@ -1,6 +1,6 @@
-const url="https://backend-proy-final-node.herokuapp.com/api"
+// const url="https://backend-proy-final-node.herokuapp.com/api"
 
-//const url="http://localhost:8080/api"
+const url="http://localhost:8080/api"
 
 
 //funcion para obtener pedidos
