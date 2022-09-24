@@ -92,7 +92,7 @@ const NavbarApp = () => {
           <img
             className="image-navbar"
             src="https://i.ibb.co/MVx3xmf/sabor-en-C-D-gos-1.gif"
-            alt=""
+            alt="Logo Sabor en Codigos"
           />
         </Link>
         <button
