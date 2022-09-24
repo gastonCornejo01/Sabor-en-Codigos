@@ -19,7 +19,7 @@ export const postPedidos = async (datos) => {
 
     return data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -38,7 +38,7 @@ export const putPedidos = async (datos,id) => {
 
     return data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -57,7 +57,7 @@ export const deletePedidos = async (id) => {
 
     return data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 

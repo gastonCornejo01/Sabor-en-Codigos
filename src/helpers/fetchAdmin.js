@@ -18,7 +18,7 @@ export const postMenus = async (datos) => {
 
     return data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -37,7 +37,7 @@ export const putMenus = async (datos,id) => {
 
     return data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -56,7 +56,7 @@ export const deleteMenus = async (id) => {
 
     return data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 

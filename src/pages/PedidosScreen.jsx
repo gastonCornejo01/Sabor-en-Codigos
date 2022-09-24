@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 const PedidosScreen = ({ pedido, setPedido }) => {
   const navigate = useNavigate();
   const eliminarItem = (id) => {
-    console.log(id);
+    // console.log(id);
     setPedido(
       pedido.filter((menu) => {
-        console.log(menu);
+        // console.log(menu);
         return menu._id != id;
       })
     );
@@ -41,7 +41,7 @@ const PedidosScreen = ({ pedido, setPedido }) => {
     pedido[index].precio *= pedido[index].cantidad;
     setPedido([...pedido]);
     // console.log(id)
-    console.log(pedido);
+    // console.log(pedido);
   };
 
   const restarCantidad = (id) => {
@@ -49,7 +49,7 @@ const PedidosScreen = ({ pedido, setPedido }) => {
     if (pedido[index].cantidad != 1) pedido[index].cantidad -= 1;
     setPedido([...pedido]);
     // console.log(id)
-    console.log(pedido);
+    // console.log(pedido);
   };
 
   const [precioTotal, setPrecioTotal] = useState(0);
@@ -59,7 +59,7 @@ const PedidosScreen = ({ pedido, setPedido }) => {
         return prev + current.precio;
       }, 0);
       setPrecioTotal(total);
-      console.log(precioTotal);
+      // console.log(precioTotal);
     }
   }, [pedido]);
 

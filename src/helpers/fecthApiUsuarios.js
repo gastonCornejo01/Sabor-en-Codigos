@@ -19,7 +19,7 @@ export const postUsuarios = async (datos) => {
 
     return data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -38,7 +38,7 @@ export const putUsuarios = async (datos,id) => {
 
     return data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -57,7 +57,7 @@ export const deleteUsuarios = async (id) => {
 
     return data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 

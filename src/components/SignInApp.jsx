@@ -21,9 +21,9 @@ const SignInApp = () => {
       password,
     };
 
-    console.log(datos);
+    // console.log(datos);
     postAuth(datos).then((respuesta) => {
-      console.log(respuesta);
+      // console.log(respuesta);
       if (respuesta?.token) {
         setMessage({ ok: true, msg: "Login ok" });
         localStorage.setItem("token", JSON.stringify(respuesta.token));

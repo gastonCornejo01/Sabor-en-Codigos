@@ -11,7 +11,7 @@ const NavbarApp = () => {
 
   useEffect(() => {
     const local1 = JSON.parse(localStorage.length) || [0];
-    console.log(local1);
+    // console.log(local1);
     setLocal(local1);
   }, []);
 

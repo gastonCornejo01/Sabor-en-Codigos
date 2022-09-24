@@ -35,7 +35,7 @@ const SignUpApp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formValues);
+    // console.log(formValues);
     if (formValues.password === verificarPassword.password1) {
       postUsuarios(formValues).then((respuesta) => {
         //console.log(respuesta);

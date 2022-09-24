@@ -7,7 +7,7 @@ const MenuScreen = ({menus, pedido, setPedido}) => {
     let index = pedido.findIndex((obj) => (
       obj._id === data._id
     ))
-    console.log(index)
+    // console.log(index)
     // console.log(pedido[0])
     if(index != -1) {
       pedido[index].cantidad += 1;
