@@ -1,9 +1,9 @@
-# Sabor en Codigos  🍴🍝
+# Sabor en Codigos 🍴🍝
 
 ## Proyecto Final de RollingCode comisión 29i 💻
 
 Proyecto realizado para un restaurante,
-utilizamos ReactJS para realizar el maquetado del Frontend y del CRUD tanto como para dar de alta, baja y editar los menus cargados desde una página de adminsitración que luego se muestran en una tabla 
+utilizamos ReactJS para realizar el maquetado del Frontend y del CRUD tanto como para dar de alta, baja y editar los menus cargados desde una página de adminsitración que luego se muestran en una tabla
 y se guardan en una base de datos en la nube (MongoDB).
 
 ## VISUALIZAR DEMO ✨ ✨
@@ -14,8 +14,8 @@ y se guardan en una base de datos en la nube (MongoDB).
 
 ## Para iniciar sesión como Administrador:
 
-- usuario: # 
-- password: #
+- usuario(admin_admin@admin.com)
+- password(123456)
 
 - De lo contrario loguearse como Usuario desde el apartado Login.
 
@@ -41,13 +41,10 @@ Tras clonar el repositorio, ejecutar el siguiente comando en la carpeta en una t
 npm install
 Las dependencias se instalarán automáticamente.
 
-
-
-
 ## Autores 😎:
 
-- Osman, Franco 
+- Osman, Franco
 - Barreiro, Eduardo
-- Cornejo, Gastón 
-- Seme,Daniel 
-- Figueroa Ruesjas, Tomás 
+- Cornejo, Gastón
+- Seme,Daniel
+- Figueroa Ruesjas, Tomás

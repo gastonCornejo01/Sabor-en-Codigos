@@ -1,7 +1,6 @@
 // const url="https://backend-proy-final-node.herokuapp.com/api"
 
-const url="http://localhost:8080/api"
-
+const url = "http://localhost:8080/api";
 
 //Login de usuario
 export const postAuth = async (datos) => {
@@ -16,5 +15,4 @@ export const postAuth = async (datos) => {
   const data = await resp.json();
 
   return data;
-  
 };

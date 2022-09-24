@@ -1,18 +1,20 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { postAuth } from "../helpers/fetchApi";
 import { NavLink } from "react-router-dom";
 import "../css/login.css";
+import { MyContexto } from "../myContexto/MyContexto";
 
 const SignInApp = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState(null);
+  const { setToken } = useContext(MyContexto);
 
-  const validarDatos = (e) => {    
-    e.preventDefault(); //desactivo el envio por defecto    
+  const validarDatos = (e) => {
+    e.preventDefault(); //desactivo el envio por defecto
 
     const datos = {
       email,
@@ -20,19 +22,18 @@ const SignInApp = () => {
     };
 
     console.log(datos);
-    postAuth(datos).then((respuesta) => { 
-      
+    postAuth(datos).then((respuesta) => {
       console.log(respuesta);
-     if (respuesta?.msg) {
-          setMessage(respuesta);
-          console.log();
-          // navigate("/");
-      } else {        
-          setMessage({ ok: true, msg: "Login ok" });
-          //localStorage.setItem("token", JSON.stringify(respuesta.usuario.nombre));
-          // navigate("/");        
+      if (respuesta?.token) {
+        setMessage({ ok: true, msg: "Login ok" });
+        localStorage.setItem("token", JSON.stringify(respuesta.token));
+        localStorage.setItem("perfil", JSON.stringify(respuesta.usuario.role)); 
+        setToken(JSON.parse(localStorage.getItem("perfil")) || null);       
+        navigate("/");                          
+      } else {       
+        //si entra por aqui indica que ocurrio un error y nos trea el msg 
+        setMessage(respuesta);         
       }
-       
     });
   };
   return (
@@ -71,9 +72,7 @@ const SignInApp = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Contraseña"
                 />
-                <button className="button">
-                  Iniciar Sesion
-                </button>
+                <button className="button">Iniciar Sesion</button>
                 {message && (
                   <div
                     className={
