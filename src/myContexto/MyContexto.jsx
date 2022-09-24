@@ -8,7 +8,7 @@ export const MyProvider = ({ children }) => {
   useEffect(() => {
     const token1 = JSON.parse(localStorage.getItem("perfil")) || null;
 
-    console.log(token1);
+    // console.log(token1);
     setToken(token1);
   }, [token]);
 

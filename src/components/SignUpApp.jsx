@@ -35,7 +35,7 @@ const SignUpApp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formValues);
+    // console.log(formValues);
     if (formValues.password === verificarPassword.password1) {
       postUsuarios(formValues).then((respuesta) => {
         //console.log(respuesta);
@@ -67,7 +67,7 @@ const SignUpApp = () => {
   return (
     <div className="animate__animated animate__backInRight">
       <div className="container d-flex justify-content-center">
-        <div className="row div-contenedor contain m-5">
+        <div className="row div-contenedor contain m-3">
           <div className="overlay-panel col-md-6 col-sm-12 background-welcome">
             <div className="p">
               <h1>Bienvenido</h1>

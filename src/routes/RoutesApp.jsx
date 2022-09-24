@@ -17,7 +17,7 @@ const RoutesApp = () => {
 
     useEffect(() => {
         getMenus().then((respuesta) => {
-          console.log(respuesta);
+          // console.log(respuesta);
           let arreglo = [];
 
           Array.from(respuesta.menus).forEach((element) => {

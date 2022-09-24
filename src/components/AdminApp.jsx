@@ -36,7 +36,7 @@ const AdminApp = () => {
   });
 
   const hola = (menu, accion) => {
-    console.log(menu._id);
+    // console.log(menu._id);
     setMenuselecc({
       nombre: menu.nombre,
       precio: menu.precio,
@@ -88,7 +88,7 @@ const AdminApp = () => {
 
   useEffect(() => {
     getCategoria().then((respuesta) => {
-      console.log(respuesta.categorias);
+      // console.log(respuesta.categorias);
 
       setCategorias([...respuesta.categorias]);
     });
@@ -117,7 +117,7 @@ const AdminApp = () => {
     e.preventDefault(); //desactivo el envio por defecto
 
     postMenus(formValues).then((respuesta) => {
-      //console.log(respuesta)
+      // console.log(respuesta)
 
       setFormValues({
         nombre: "",
@@ -131,8 +131,6 @@ const AdminApp = () => {
     const actualizarmenus = (menuactual, tipo) => {
       setMenuselecc({ menuactual });
     };
-
-    
   };
 
   return (
@@ -254,8 +252,10 @@ const AdminApp = () => {
                               className="btn btn-warning"
                               onClick={() => hola(menu, "actualizar")}
                             >
-                              <i className="fa fa-pencil" aria-hidden="true"></i>
-
+                              <i
+                                className="fa fa-pencil"
+                                aria-hidden="true"
+                              ></i>
                             </button>
                             <button
                               className="btn btn-danger float-end"
@@ -276,14 +276,14 @@ const AdminApp = () => {
       </div>
       <Modal isOpen={habmodal}>
         <ModalHeader>
-          <p>Actualizar Menu</p>
+          <h3>Actualizar Menu</h3>
         </ModalHeader>
 
         <ModalBody>
           <div className="form-group">
             <label htmlFor="id">Nombre</label>
             <input
-              className="form-control"
+              className="input"
               type="text"
               name="nombre"
               id="nombre"
@@ -293,19 +293,34 @@ const AdminApp = () => {
             />
             <br />
             <label htmlFor="nombre">Categoria</label>
-            <input
-              className="form-control"
-              type="text"
+            <select
               name="nombcateg"
-              id="nombcateg"
-              value={menuselecc.nombcateg}
-              onChange={handleChangeact}
-            />
+              className="input"
+              aria-label="Default select example"
+              required
+              value={formValues.nombcateg}
+              onChange={handleChange}
+            >
+              <option
+                value={categoria}
+                onChange={(e) => setCategoria(e.target.value)}
+              >
+                {menuselecc.nombcateg}
+              </option>
+              {categorias.map((cat) => (
+                <option key={cat._id} value={cat.nombre}>
+                  {cat.nombre}
+                </option>
+              ))}
+            </select>
             <br />
             <label htmlFor="nombre">Precio</label>
             <input
-              className="form-control"
-              type="text"
+              className="input"
+              type="number"
+              min={1}
+              max={100000}
+              required
               name="precio"
               id="precio"
               value={menuselecc.precio}
@@ -314,8 +329,9 @@ const AdminApp = () => {
             <br />
             <label htmlFor="capital_bursatil">Imagen</label>
             <input
-              className="form-control"
-              type="text"
+              className="input"
+              type="url"
+              required
               name="img"
               id="img"
               value={menuselecc.img}

@@ -21,9 +21,9 @@ const SignInApp = () => {
       password,
     };
 
-    console.log(datos);
+    // console.log(datos);
     postAuth(datos).then((respuesta) => {
-      console.log(respuesta);
+      // console.log(respuesta);
       if (respuesta?.token) {
         setMessage({ ok: true, msg: "Login ok" });
         localStorage.setItem("token", JSON.stringify(respuesta.token));
@@ -40,9 +40,9 @@ const SignInApp = () => {
     <div className="mt-0">
       <div className="animate__animated animate__backInLeft">
         <div className="container d-flex justify-content-center">
-          <div className="row div-contenedor contain m-5">
+          <div className="row div-contenedor contain m-3">
             <div className="overlay-panel col-md-6 col-sm-12">
-              <form className="form" onSubmit={validarDatos}>
+              <form className="form my-3" onSubmit={validarDatos}>
                 <h1>Iniciar Sesión</h1>
                 <div className="social-container">
                   <a
@@ -72,7 +72,7 @@ const SignInApp = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Contraseña"
                 />
-                <button className="button">Iniciar Sesion</button>
+                <button className="button my-3">Iniciar Sesion</button>
                 {message && (
                   <div
                     className={

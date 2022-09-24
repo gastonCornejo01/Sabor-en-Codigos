@@ -21,7 +21,7 @@ const PedidosAdmin = () => {
 
     ///funciones
     const administracionped=(pedidosel,accion)=>{        
-        console.log(pedidosel);
+        // console.log(pedidosel);
         setPedidoselecc({      
             _id: pedidosel._id,
             fecha: pedidosel.fecha,
@@ -75,7 +75,7 @@ const PedidosAdmin = () => {
     //use efectt
     useEffect(() => {
         getPedidos().then((respuesta) => {
-            console.log(respuesta.pedidos);
+            // console.log(respuesta.pedidos);
             let arreglo = [];
 
             respuesta.pedidos.forEach((element) => {
