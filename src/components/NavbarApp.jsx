@@ -82,13 +82,15 @@ const NavbarApp = () => {
           <ul className="navbar-nav">
             {(local != 0 && (
               <li>
-                <button
-                  className="btn btn-login"
-                  onClick={() => cerrarSesion()}
-                >
-                  <i className="fa fa-sign-in" aria-hidden="true"></i> Cerrar
-                  Sesion
-                </button>
+                <NavLink to="/login">
+                  <button
+                    className="btn btn-login"
+                    onClick={() => cerrarSesion()}
+                  >
+                    <i className="fa fa-sign-in" aria-hidden="true"></i> Cerrar
+                    Sesion
+                  </button>
+                </NavLink>
               </li>
             )) || (
               <li>
