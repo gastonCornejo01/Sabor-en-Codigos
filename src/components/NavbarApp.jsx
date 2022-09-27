@@ -13,13 +13,14 @@ const NavbarApp = () => {
     const local1 = JSON.parse(localStorage.length) || [];
     // console.log(local1);
     setLocal(local1);
-  }, []);
+  }, [local]);
 
   const cerrarSesion = () => {
     const cerrar = window.confirm("Seguro quieres Cerrar Sesion?");
 
     if (cerrar) {
       localStorage.clear();
+      setLocal(0);
     }
   };
 
@@ -81,12 +82,13 @@ const NavbarApp = () => {
           <ul className="navbar-nav">
             {(local != 0 && (
               <li>
-
-                  <button className="btn btn-login" onClick={()=> cerrarSesion()}>
-                    <i className="fa fa-sign-in" aria-hidden="true"></i> Cerrar
-                    Sesion
-                  </button>
-                  
+                <button
+                  className="btn btn-login"
+                  onClick={() => cerrarSesion()}
+                >
+                  <i className="fa fa-sign-in" aria-hidden="true"></i> Cerrar
+                  Sesion
+                </button>
               </li>
             )) || (
               <li>
