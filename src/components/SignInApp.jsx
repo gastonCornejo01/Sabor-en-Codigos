@@ -11,7 +11,7 @@ const SignInApp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState(null);
-  const { setToken } = useContext(MyContexto);
+  const { token,local,setLocal,setToken } = useContext(MyContexto);
 
   const validarDatos = (e) => {
     e.preventDefault(); //desactivo el envio por defecto
@@ -30,6 +30,7 @@ const SignInApp = () => {
         localStorage.setItem("perfil", JSON.stringify(respuesta.usuario.role));
         setToken(JSON.parse(localStorage.getItem("perfil")) || null);
         navigate("/");
+        setLocal(1);
       } else {
         //si entra por aqui indica que ocurrio un error y nos trea el msg
         setMessage(respuesta);

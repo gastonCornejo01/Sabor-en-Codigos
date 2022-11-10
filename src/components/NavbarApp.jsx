@@ -3,17 +3,19 @@ import { MyContexto } from "../myContexto/MyContexto";
 import { Link, Navigate, NavLink } from "react-router-dom";
 import "../css/navbar.css";
 
+
 const NavbarApp = () => {
   //usando el hook useContext, traigo Mycontexto para usar lo que necesite de su propiedad value
-  const { token } = useContext(MyContexto);
+  const { token,local,setLocal } = useContext(MyContexto);
 
-  const [local, setLocal] = useState();
+  // const [local, setLocal] = useState();
 
   useEffect(() => {
     const local1 = JSON.parse(localStorage.length) || [];
     // console.log(local1);
     setLocal(local1);
   }, [local]);
+  
 
   const cerrarSesion = () => {
     const cerrar = window.confirm("Seguro quieres Cerrar Sesion?");

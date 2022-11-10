@@ -5,6 +5,8 @@ export const MyContexto = createContext();
 export const MyProvider = ({ children }) => {
   const [token, setToken] = useState(null);
 
+  const [ local, setLocal] = useState();
+
   useEffect(() => {
     const token1 = JSON.parse(localStorage.getItem("perfil")) || null;
 
@@ -19,6 +21,8 @@ export const MyProvider = ({ children }) => {
         nombre: "Daniel",
         token,
         setToken,
+        local,
+        setLocal,
       }}
     >
       {children}
