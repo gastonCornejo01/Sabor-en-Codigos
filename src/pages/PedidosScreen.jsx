@@ -80,15 +80,19 @@ const PedidosScreen = ({ pedido, setPedido }) => {
         ))}
       </div>
       <div className="row">
-        <button className="btn btn-danger" onClick={limpiarPedido}>
-          Eliminar Pedido
-        </button>
+        {precioTotal != 0 && (
+          <div>
+            <button className="btn btn-danger" onClick={limpiarPedido}>
+              Eliminar Pedido
+            </button>
 
-        <h3>Total pedido: ${precioTotal}</h3>
+            <h3>Total pedido: ${precioTotal}</h3>
 
-        <button className="btn btn-success" onClick={confirmarPedido}>
-          Confirmar Pedido
-        </button>
+            <button className="btn btn-success" onClick={confirmarPedido}>
+              Confirmar Pedido
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
