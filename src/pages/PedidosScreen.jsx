@@ -84,9 +84,12 @@ const PedidosScreen = ({ pedido, setPedido }) => {
 
         <h3>Total pedido: ${precioTotal}</h3>
 
+        {precioTotal!=0 &&
         <button className="btn btn-success" onClick={confirmarPedido}>
           Confirmar Pedido
         </button>
+        }
+
       </div>
     </div>
   );

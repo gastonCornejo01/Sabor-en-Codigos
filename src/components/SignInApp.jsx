@@ -72,19 +72,22 @@ const SignInApp = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Contraseña"
                 />
-                <button className="button my-3">Iniciar Sesion</button>
+                <NavLink to="/menu">
+
+                <button className="button">Iniciar Sesion</button>
                 {message && (
                   <div
-                    className={
-                      message?.ok
-                        ? "alert alert-success mt-3"
-                        : "alert alert-danger mt-3"
-                    }
-                    role="alert"
+                  className={
+                    message?.ok
+                    ? "alert alert-success mt-3"
+                    : "alert alert-danger mt-3"
+                  }
+                  role="alert"
                   >
                     {message.msg}
                   </div>
                 )}
+                </NavLink>
               </form>
             </div>
             <div className="overlay-panel col-md-6 col-sm-12 background-welcome">

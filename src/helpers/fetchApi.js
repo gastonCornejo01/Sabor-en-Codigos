@@ -1,6 +1,6 @@
-// const url="https://backend-proy-final-node.herokuapp.com/api"
+const url="https://git.heroku.com/sabor-en-codigos.git"
 
-const url = "http://localhost:8080/api";
+// const url = "http://localhost:8080/api";
 
 //Login de usuario
 export const postAuth = async (datos) => {
