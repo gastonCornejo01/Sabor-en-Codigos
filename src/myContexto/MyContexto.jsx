@@ -4,6 +4,7 @@ export const MyContexto = createContext();
 
 export const MyProvider = ({ children }) => {
   const [token, setToken] = useState(null);
+  const [local, setLocal] = useState();
 
   const [ local, setLocal] = useState();
 
