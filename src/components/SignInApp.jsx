@@ -27,12 +27,12 @@ const SignInApp = () => {
       if (respuesta?.token) {
         setMessage({ ok: true, msg: "Login ok" });
         localStorage.setItem("token", JSON.stringify(respuesta.token));
-        localStorage.setItem("perfil", JSON.stringify(respuesta.usuario.role)); 
-        setToken(JSON.parse(localStorage.getItem("perfil")) || null);       
-        navigate("/");                          
-      } else {       
-        //si entra por aqui indica que ocurrio un error y nos trea el msg 
-        setMessage(respuesta);         
+        localStorage.setItem("perfil", JSON.stringify(respuesta.usuario.role));
+        setToken(JSON.parse(localStorage.getItem("perfil")) || null);
+        navigate("/");
+      } else {
+        //si entra por aqui indica que ocurrio un error y nos trea el msg
+        setMessage(respuesta);
       }
     });
   };
@@ -64,6 +64,7 @@ const SignInApp = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email"
+                  required
                 />
                 <input
                   className="input"
@@ -71,6 +72,7 @@ const SignInApp = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Contraseña"
+                  required
                 />
                 <NavLink to="/menu">
 

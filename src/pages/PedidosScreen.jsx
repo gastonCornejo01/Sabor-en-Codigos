@@ -20,6 +20,7 @@ const PedidosScreen = ({ pedido, setPedido }) => {
   const limpiarPedido = () => {
     // console.log(pedido)
     setPedido([]);
+    setPrecioTotal(0);
   };
 
   const confirmarPedido = () => {
@@ -54,13 +55,14 @@ const PedidosScreen = ({ pedido, setPedido }) => {
 
   const [precioTotal, setPrecioTotal] = useState(0);
   useEffect(() => {
+    let total = 0;
     for (let index = 0; index < pedido.length; index += 1) {
-      let total = pedido.reduce(function (prev, current) {
+      total = pedido.reduce(function (prev, current) {
         return prev + current.precio;
       }, 0);
-      setPrecioTotal(total);
-      // console.log(precioTotal);
+      console.log(precioTotal);
     }
+    setPrecioTotal(total);
   }, [pedido]);
 
   return (
