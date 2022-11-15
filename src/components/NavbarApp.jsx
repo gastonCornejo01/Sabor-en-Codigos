@@ -12,7 +12,7 @@ const NavbarApp = () => {
     const local1 = JSON.parse(localStorage.length) || [];
     // console.log(local1);
     setLocal(local1);
-  }, [local]);
+  }, []);
 
   const cerrarSesion = () => {
     const cerrar = window.confirm("Seguro quieres Cerrar Sesion?");

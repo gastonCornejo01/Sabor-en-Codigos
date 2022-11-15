@@ -1,6 +1,6 @@
 const url = "https://git.heroku.com/sabor-en-codigos.git";
 
-// const url = "http://localhost:8080/api";
+//const url = "http://localhost:8080/api";
 
 //funcion para obtener gifs trending, USO EL export para poder llmarla desde un componente
 export const postMenus = async (datos) => {

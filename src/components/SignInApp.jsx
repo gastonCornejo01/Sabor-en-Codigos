@@ -77,20 +77,19 @@ const SignInApp = () => {
                   required
                 />
                 <NavLink to="/menu">
-
-                <button className="button">Iniciar Sesion</button>
-                {message && (
-                  <div
-                  className={
-                    message?.ok
-                    ? "alert alert-success mt-3"
-                    : "alert alert-danger mt-3"
-                  }
-                  role="alert"
-                  >
-                    {message.msg}
-                  </div>
-                )}
+                  <button className="button">Iniciar Sesion</button>
+                  {message && (
+                    <div
+                      className={
+                        message?.ok
+                          ? "alert alert-success mt-3"
+                          : "alert alert-danger mt-3"
+                      }
+                      role="alert"
+                    >
+                      {message.msg}
+                    </div>
+                  )}
                 </NavLink>
               </form>
             </div>

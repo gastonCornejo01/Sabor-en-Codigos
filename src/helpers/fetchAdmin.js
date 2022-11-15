@@ -1,19 +1,16 @@
-const url="https://git.heroku.com/sabor-en-codigos.git"
+const url = "https://git.heroku.com/sabor-en-codigos.git";
 
-// const url="http://localhost:8080/api"
-
+//const url = "http://localhost:8080/api";
 
 export const postMenus = async (datos) => {
   try {
-    const resp = await fetch(
-      `${url}/menus`,{
-        method: "POST",
-        body : JSON.stringify(datos),
-        headers:{
-            "Content-type":"application/json; charset=UTF-8",
-        },
-      }
-    );
+    const resp = await fetch(`${url}/menus`, {
+      method: "POST",
+      body: JSON.stringify(datos),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
     const { data } = await resp.json();
 
     return data;
@@ -22,17 +19,15 @@ export const postMenus = async (datos) => {
   }
 };
 
-export const putMenus = async (datos,id) => {
+export const putMenus = async (datos, id) => {
   try {
-    const resp = await fetch(
-      `${url}/menus/${id}`,{
-        method: "PUT",
-        body : JSON.stringify(datos),
-        headers:{
-            "Content-type":"application/json; charset=UTF-8",
-        },
-      }
-    );
+    const resp = await fetch(`${url}/menus/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(datos),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
     const { data } = await resp.json();
 
     return data;
@@ -40,18 +35,15 @@ export const putMenus = async (datos,id) => {
     // console.log(error);
   }
 };
-
 
 export const deleteMenus = async (id) => {
   try {
-    const resp = await fetch(
-      `${url}/menus/${id}`,{
-        method: "DELETE",        
-        headers:{
-            "Content-type":"application/json; charset=UTF-8",
-        },
-      }
-    );
+    const resp = await fetch(`${url}/menus/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
     const { data } = await resp.json();
 
     return data;
@@ -59,18 +51,15 @@ export const deleteMenus = async (id) => {
     // console.log(error);
   }
 };
-
 
 export const getMenus = async () => {
   const resp = await fetch(`${url}/menus`, {
     method: "GET",
     headers: {
-      "Content-type": "application/json; charset=UTF-8",      
+      "Content-type": "application/json; charset=UTF-8",
     },
   });
   const data = await resp.json();
 
   return data;
 };
-
-

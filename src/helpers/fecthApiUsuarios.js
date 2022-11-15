@@ -1,20 +1,17 @@
-const url="https://git.heroku.com/sabor-en-codigos.git"
+const url = "https://git.heroku.com/sabor-en-codigos.git";
 
-// const url="http://localhost:8080/api"
-
+//const url = "http://localhost:8080/api";
 
 //funcion para obtener usuarios
 export const postUsuarios = async (datos) => {
   try {
-    const resp = await fetch(
-      `${url}/usuarios`,{
-        method: "POST",
-        body : JSON.stringify(datos),
-        headers:{
-            "Content-type":"application/json; charset=UTF-8",
-        },
-      }
-    );
+    const resp = await fetch(`${url}/usuarios`, {
+      method: "POST",
+      body: JSON.stringify(datos),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
     const { data } = await resp.json();
 
     return data;
@@ -23,17 +20,15 @@ export const postUsuarios = async (datos) => {
   }
 };
 
-export const putUsuarios = async (datos,id) => {
+export const putUsuarios = async (datos, id) => {
   try {
-    const resp = await fetch(
-      `${url}/usuarios/${id}`,{
-        method: "PUT",
-        body : JSON.stringify(datos),
-        headers:{
-            "Content-type":"application/json; charset=UTF-8",
-        },
-      }
-    );
+    const resp = await fetch(`${url}/usuarios/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(datos),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
     const { data } = await resp.json();
 
     return data;
@@ -41,18 +36,15 @@ export const putUsuarios = async (datos,id) => {
     // console.log(error);
   }
 };
-
 
 export const deleteUsuarios = async (id) => {
   try {
-    const resp = await fetch(
-      `${url}/usuarios/${id}`,{
-        method: "DELETE",        
-        headers:{
-            "Content-type":"application/json; charset=UTF-8",
-        },
-      }
-    );
+    const resp = await fetch(`${url}/usuarios/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
     const { data } = await resp.json();
 
     return data;
@@ -60,18 +52,15 @@ export const deleteUsuarios = async (id) => {
     // console.log(error);
   }
 };
-
 
 export const getUsuarios = async () => {
   const resp = await fetch(`${url}/usuarios`, {
     method: "GET",
     headers: {
-      "Content-type": "application/json; charset=UTF-8",      
+      "Content-type": "application/json; charset=UTF-8",
     },
   });
   const data = await resp.json();
 
   return data;
 };
-
-
