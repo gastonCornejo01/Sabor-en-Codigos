@@ -80,7 +80,6 @@ const SignUpApp = () => {
           </div>
           <div className="overlay-panel col-md-6 col-sm-12">
             <div className="mt-3" id="msg"></div>
-
             {/* Mensajes de Verificación */}
             <div id="error" className="alert alert-danger ocultar" role="alert">
               Las Contraseñas no coinciden, vuelve a intentar !

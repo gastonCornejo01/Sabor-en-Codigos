@@ -6,8 +6,6 @@ export const MyProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [local, setLocal] = useState();
 
-  const [ local, setLocal] = useState();
-
   useEffect(() => {
     const token1 = JSON.parse(localStorage.getItem("perfil")) || null;
 
