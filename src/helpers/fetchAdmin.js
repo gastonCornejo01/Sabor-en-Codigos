@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 // const url="https://backend-proy-final-node.herokuapp.com/api"
+=======
+// const url="https://git.heroku.com/sabor-en-codigos.git"
+
+const url="http://localhost:8080/api"
+>>>>>>> 3514c8179edbe0de1164ed07e4973e37d7e11340
 
 const url = "http://localhost:8080/api";
 

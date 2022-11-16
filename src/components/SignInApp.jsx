@@ -11,8 +11,12 @@ const SignInApp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState(null);
+<<<<<<< HEAD
+  const { token,local,setLocal,setToken } = useContext(MyContexto);
+=======
   //const { setToken } = useContext(MyContexto);
   const { token, local, setLocal, setToken } = useContext(MyContexto);
+>>>>>>> 79992d5c40e86a7e10f27d21435dc9ec1e085f06
 
   const validarDatos = (e) => {
     e.preventDefault(); //desactivo el envio por defecto
