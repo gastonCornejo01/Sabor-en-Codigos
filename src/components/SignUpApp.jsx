@@ -60,8 +60,9 @@ const SignUpApp = () => {
       });
     } else {
       document.getElementById("error").classList.add("mostrar");
- 
-      return false;    }
+
+      return false;
+    }
   };
 
   return (

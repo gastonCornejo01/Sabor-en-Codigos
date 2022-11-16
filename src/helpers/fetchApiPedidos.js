@@ -1,6 +1,6 @@
-const url = "https://git.heroku.com/sabor-en-codigos.git";
+// const url="https://backend-proy-final-node.herokuapp.com/api"
 
-//const url = "http://localhost:8080/api";
+const url = "http://localhost:8080/api";
 
 //funcion para obtener pedidos
 export const postPedidos = async (datos) => {
