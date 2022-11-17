@@ -124,6 +124,7 @@ const SignUpApp = () => {
                 className="input"
                 type="password"
                 name="password"
+                minLength="6"
                 maxLength="30"
                 value={formValues.password}
                 onChange={handleChange}
@@ -133,6 +134,7 @@ const SignUpApp = () => {
                 className="input"
                 type="password"
                 name="password1"
+                minLength="6"
                 maxLength="30"
                 value={verificarPassword.password1}
                 onChange={handleChange}
